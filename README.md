@@ -1,8 +1,10 @@
 # leetcode84.-
 
+---
+
 <img width="1137" height="1174" alt="image" src="https://github.com/user-attachments/assets/96cdfdab-9f65-40a0-8167-786a7932f997" />
 
-按照之前确定的详细拆解模式，针对这道“柱状图中最大的矩形”问题及其解法，进行全面的剖析。
+---
 
 ### （1）题目意思与生僻概念解释
 
