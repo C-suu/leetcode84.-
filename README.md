@@ -47,34 +47,25 @@ class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         # 初始化栈，放入索引 -1 作为左边界哨兵
         stack = [-1]
-        
         # 在原数组末尾追加高度 0，作为右边界哨兵，迫使循环结束时清空栈内元素
         heights.append(0)
-        
         # 初始化最大面积记录变量
         mxarea = 0
-        
         # 遍历高度数组，i 为索引，v 为当前柱子的高度
         for i, v in enumerate(heights):
-            
             # 当栈顶索引对应的高度大于当前柱子高度时，说明栈顶柱子的右边界找到了
             # 注意：stack[-1] 是栈顶索引，heights[stack[-1]] 是栈顶柱子的高度
             while heights[stack[-1]] > v:
-                
                 # 弹出栈顶索引，作为当前要计算矩形面积的“高度瓶颈”柱子
                 mid = stack.pop()
-                
                 # 计算面积：高度为 heights[mid]
                 # 宽度为 当前索引 i 减去 新的栈顶索引 (左边界) 再减 1
                 area = heights[mid] * (i - 1 - stack[-1])
-                
                 # 如果当前计算出的面积大于历史最大面积，则更新
                 if area > mxarea: 
                     mxarea = area
-                    
             # 无论是否发生出栈，当前柱子的索引最终都要入栈，维持单调递增
             stack.append(i)
-            
         # 遍历完毕，返回记录的最大面积
         return mxarea
 ```
