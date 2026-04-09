@@ -64,7 +64,8 @@ class Solution:
                 area = heights[mid] * (i - 1 - stack[-1])
                 # 如果当前计算出的面积大于历史最大面积，则更新
                 if area > mxarea: 
-                    mxarea = area  
+                    mxarea = area
+            # 上面的判断条件不如直接修改为：max_area = max(area, max_area)
             # 无论是否发生出栈，当前柱子的索引最终都要入栈，维持单调递增
             stack.append(i)
         # 遍历完毕，返回记录的最大面积
